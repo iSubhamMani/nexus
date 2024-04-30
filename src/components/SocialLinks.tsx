@@ -6,17 +6,42 @@ import { ImGithub } from "react-icons/im";
 import { LuInstagram } from "react-icons/lu";
 import { SiHashnode } from "react-icons/si";
 import { BsDiscord } from "react-icons/bs";
+import { TiFlowMerge } from "react-icons/ti";
+import { useEffect, useState } from "react";
 
 function SocialLinks() {
-  const copyDiscordID = () => {
-    navigator.clipboard.writeText("iSubhamMani#7202");
+  const [isCopied, setIsCopied] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCopied(false);
+    }, 2500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isCopied]);
+
+  const copyDiscordID = async () => {
+    await navigator.clipboard.writeText("iSubhamMani#7202");
+    setIsCopied(true);
   };
 
   return (
-    <div className="z-50 flex flex-col items-center mt-10">
-      <p className="dark:text-white text-black font-bold text-[1rem] sm:text-lg">
-        Fork Me
-      </p>
+    <div className="z-50 flex flex-col items-center mt-10 flex-1">
+      <div className="flex gap-2 items-center">
+        <TiFlowMerge size={18} color="rgb(22, 163, 74)" />
+        <p className="dark:text-green-600 text-green-600 font-bold text-[1rem] sm:text-lg">
+          Merge your branch with mine
+        </p>
+      </div>
+      {isCopied && (
+        <div className="mt-4">
+          <p className="text-sm sm:text-base text-black dark:text-white font-medium">
+            Discord ID copied to clipboard!
+          </p>
+        </div>
+      )}
       <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
         <SocialButton
           content="LinkedIn"

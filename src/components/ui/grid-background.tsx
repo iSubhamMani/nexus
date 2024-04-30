@@ -1,6 +1,7 @@
 import React from "react";
 import IntroSection from "../IntroSection";
 import SocialLinks from "../SocialLinks";
+import Footer from "../Footer";
 
 export function GridBackground() {
   return (
@@ -9,6 +10,7 @@ export function GridBackground() {
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <IntroSection />
       <SocialLinks />
+      <Footer />
     </div>
   );
 }
