@@ -12,7 +12,7 @@ const people = [
 
 function AvatarSection() {
   return (
-    <div className="mt-32 mb-20 flex flex-row justify-center items-center w-full">
+    <div className="mt-28 sm:mt-32 mb-12 flex flex-row justify-center items-center w-full">
       <AnimatedTooltip items={people} />
     </div>
   );
